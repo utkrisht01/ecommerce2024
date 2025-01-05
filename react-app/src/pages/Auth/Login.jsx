@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
-import { useNavigate ,useLocation} from "react-router-dom";
+import { useNavigate ,useLocation, Link} from "react-router-dom";
 import {toast} from "react-toastify";
 import "../../styles/AuthStyles.css";
 import { useAuth } from "../../context/auth";
@@ -64,6 +64,8 @@ const location =useLocation();
               required
             />
           </div>
+
+          <Link to="/register"><p>Don't have an account</p></Link>
 <div className="mb-3">
 <button 
           type="button"

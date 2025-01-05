@@ -3,7 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import AdminMenu from "../../components/AdminMenu";
 import { Modal } from "antd";
 
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
 import CategoryForm from "../../components/Form/CategoryForm";
 
@@ -94,7 +94,7 @@ const CreateCategory = () => {
   };
   return (
     <Layout title={"Dashboard - Create Category"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid py-4">
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />
@@ -108,20 +108,35 @@ const CreateCategory = () => {
                 setValue={setName}
               />
             </div>
-            <div className="w-75">
+            <div className="w-75 table-wraper">
               <table className="table">
                 <thead>
                   <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Actions</th>
+                    <th
+                      scope="col"
+                      className="bg-general-secondary-imp text-general-color"
+                    >
+                      Name
+                    </th>
+                    <th
+                      scope="col"
+                      className="bg-general-secondary-imp text-general-color"
+                    >
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {categories?.map((c) => (
                     <>
                       <tr>
-                        <td key={c._id}>{c.name}</td>
-                        <td>
+                        <td
+                          key={c._id}
+                          className="bg-general-secondary-imp text-general-color"
+                        >
+                          {c.name}
+                        </td>
+                        <td className="bg-general-secondary-imp text-general-color">
                           <button
                             className="btn btn-primary ms-2"
                             onClick={() => {

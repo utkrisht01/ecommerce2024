@@ -1,9 +1,89 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
 
+:root {
+  --color: black;
+  --background: #fff;
+  --bg-secondary: #f2f2f2;
+  --active: blue;
+  --gradient-bg: linear-gradient(115.7deg, rgb(3, 79, 135) 6.2%, rgb(75, 192, 221) 112.9%);
+}
+
+.dark {
+  --color: white;
+  --background: #1a1a1a;
+  --active: rgb(252, 216, 71);
+  --bg-secondary: #2b2b2b;
+  --gradient-bg: #2b2b2b;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.text-general-color{
+  color: var(--color) !important;
+}
+
+.bg-general-color{
+  background-color: var(--background);
+}
+
+.bg-general-secondary{
+  background-color: var(--bg-secondary);
+}
+
+.bg-general-secondary-imp{
+  background-color: var(--bg-secondary) !important;
+}
+
+.card-image{
+  height: 50%;
+}
+
+.product-card-image{
+  height: 150px;
+}
+
+.product-card{
+  height: 330px;
+  overflow: hidden;
+}
+
+.line-clamp-5{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+}
+
+.col-md-9{
+  margin: 0;
+}
+
+.table{
+  border: 1px solid rgb(21, 128, 250);
+  margin-bottom: 0;
+}
+
+.table-wraper{
+  border: 1px solid #008aff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.navbar-container{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+@media (min-width:990px) {
+  .navbar-container{
+    align-items: center;
+  }
 }
 
 /* font-family: 'Poppins', sans-serif; */
@@ -15,17 +95,18 @@
   font-size: 17px;
   line-height: 26px;
   text-transform: uppercase;
-  box-shadow: 0 8px 6px -6px #0d6efd;
-  --webkit-box-shadow: 0 8px 6px -6px #0d6efd;
-  border-bottom: solid #0d6efd !important;
 }
 
-.nav-link {
+/* .nav-link {
   font-weight: 300 !important;
-}
+} */
 
-.active {
+/* .active {
   border-bottom: 2px solid #0d6efd
+} */
+
+.active{
+    color: var(--active) !important;
 }
 
 .navbar-brand {
@@ -39,9 +120,7 @@
 .footer {
   color: white;
   padding: 25px;
-  background: linear-gradient(115.7deg, rgb(3, 79, 135) 6.2%, rgb(0, 184, 214) 112.9%); /* fallback for old browsers */
-  
- 
+  background: var(--gradient-bg) ;
 }
 
 .footer a {
@@ -114,7 +193,7 @@
 }
 
 .team-item{
-	background: #f4f5f6;
+	background: var(--bg-secondary);
 	text-align:center;
 	margin:20px 0;
 	padding:50px 20px 40px 20px;
@@ -176,7 +255,8 @@
 .team-img{
 	max-width: 140px;
 	padding: 6px 6px;
-    background-color: #dedede;
+  height: 150px;
+  background-color: #dedede;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
@@ -199,7 +279,7 @@ ul.team-icon li{
 ul.team-icon li a{
 	margin: 0;
 	display: inline-block;
-	padding: 8px 8px;
+	padding: 7px 7px;
 	width: 34px;
 	height: 34px;
 	font-size: 18px;
@@ -230,3 +310,4 @@ ul.team-icon li a.facebook{
 	-o-transition: all 0.25s ease-in-out;
 	transition: all 0.25s ease-in-out;
 }
+

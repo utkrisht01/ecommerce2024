@@ -8,3 +8,13 @@
     display: flex;
     list-style: none;
 }
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: auto; /* Add scrollbars if needed */
+  }
+  
+  .element {
+    max-width: 100%;
+    height: auto; /* Adjust height as needed */
+  }

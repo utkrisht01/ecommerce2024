@@ -7,6 +7,7 @@ import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import { Avatar, Badge } from "antd";
+import ThemeSelection from "../themeSelection";
 const Header = () => {
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
@@ -22,9 +23,9 @@ const Header = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <Link to="/" className="navbar-brand">
+      <nav className="navbar navbar-expand-lg bg-general-secondary">
+        <div className="container-fluid py-2">
+          <Link to="/" className="navbar-brand text-general-color">
             <GiFoodTruck /> PURVANCHAL BITES
           </Link>
           <button
@@ -39,16 +40,16 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 navbar-container">
               <SearchInput />
-              <li className="nav-item">
-                <NavLink to="/" className="nav-link">
+              <li className="nav-item ">
+                <NavLink to="/" className="nav-link text-general-color">
                   Home
                 </NavLink>
               </li>
               <li className="nav-item dropdown">
                 <Link
-                  className="nav-link dropdown-toggle"
+                  className="nav-link text-general-color dropdown-toggle"
                   to={"/categories"}
                   data-bs-toggle="dropdown"
                 >
@@ -75,12 +76,20 @@ const Header = () => {
               {!auth.user ? (
                 <>
                   <li className="nav-item">
-                    <NavLink to="/register" className="nav-link" href="#">
+                    <NavLink
+                      to="/register"
+                      className="nav-link text-general-color"
+                      href="#"
+                    >
                       Register
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink to="/login" className="nav-link" href="#">
+                    <NavLink
+                      to="/login"
+                      className="nav-link text-general-color"
+                      href="#"
+                    >
                       Login
                     </NavLink>
                   </li>
@@ -89,7 +98,7 @@ const Header = () => {
                 <>
                   <li className="nav-item dropdown">
                     <NavLink
-                      className="nav-link dropdown-toggle"
+                      className="nav-link text-general-color dropdown-toggle"
                       href="#"
                       role="button"
                       data-bs-toggle="dropdown"
@@ -121,12 +130,20 @@ const Header = () => {
                   </li>
                 </>
               )}
-              <li className="nav-item">
+              <li className="nav-item p-2">
                 <Badge count={cart?.length} showZero>
-                <NavLink to="/cart" className="nav-link">
-                  Cart 
-                </NavLink>
+                  <NavLink
+                    to="/cart"
+                    className={`nav-link text-general-color  ${
+                      cart.active ? "underline" : ""
+                    }`}
+                  >
+                    Cart
+                  </NavLink>
                 </Badge>
+              </li>
+              <li className="nav-item p-2">
+                <ThemeSelection />
               </li>
             </ul>
           </div>

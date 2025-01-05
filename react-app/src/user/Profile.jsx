@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import UserMenu from "../components/Layout/UserMenu";
 import Layout from "../components/Layout/Layout";
 import { useAuth } from "../context/auth";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 import axios from "axios";
 const Profile = () => {
   //context
@@ -27,15 +27,19 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put("http://localhost:8080/api/v1/auth/profile", {
-        name,
-        email,
-        password,
-        phone,
-        address,
-      });
+      const { data } = await axios.put(
+        "http://localhost:8080/api/v1/auth/profile",
+        {
+          name,
+          email,
+          password,
+          phone,
+          address,
+        }
+      );
       if (data?.error) {
         toast.error(data?.error);
+        console.log(data.error, "this is error");
       } else {
         setAuth({ ...auth, user: data?.updatedUser });
         let ls = localStorage.getItem("auth");
@@ -51,7 +55,7 @@ const Profile = () => {
   };
   return (
     <Layout title={"Your Profile"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid py-4">
         <div className="row">
           <div className="col-md-3">
             <UserMenu />

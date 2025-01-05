@@ -3,7 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import AdminMenu from "../../components/AdminMenu";
 import { toast } from "react-toastify";
 import axios from "axios";
-import {Select} from "antd"
+import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 const { Option } = Select;
 
@@ -66,7 +66,7 @@ const CreateProduct = () => {
 
   return (
     <Layout title={"Dashboard - Create Product"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid py-4">
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />

@@ -13,7 +13,7 @@ const Policy = () => {
           />
         </div>
         <div className="col-md-4">
-       
+    WE ARE WORKING ON PRIVACY POLICY
         </div>
       </div>
     </Layout>

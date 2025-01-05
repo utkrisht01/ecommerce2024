@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
-import {useCart} from "../context/cart";
+import { useCart } from "../context/cart";
 import { toast } from "react-toastify";
 const HomePage = () => {
   const navigate = useNavigate();
-  const [cart,setcart] = useCart();
+  const [cart, setcart] = useCart();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -117,7 +117,7 @@ const HomePage = () => {
 
   return (
     <Layout title={"All Products - Best offers "}>
-      <div className="container-fluid row mt-3">
+      <div className="container-fluid py-4 row mt-3">
         <div className="col-md-2">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
@@ -126,7 +126,7 @@ const HomePage = () => {
                 key={c._id}
                 onChange={(e) => handleFilter(e.target.checked, c._id)}
               >
-                {c.name}
+                <span className="text-general-color">{c.name}</span>
               </Checkbox>
             ))}
           </div>
@@ -136,7 +136,9 @@ const HomePage = () => {
             <Radio.Group onChange={(e) => setRadio(e.target.value)}>
               {Prices?.map((p) => (
                 <div key={p._id}>
-                  <Radio value={p.array}>{p.name}</Radio>
+                  <Radio value={p.array}>
+                    <span className="text-general-color">{p.name}</span>
+                  </Radio>
                 </div>
               ))}
             </Radio.Group>
@@ -154,33 +156,39 @@ const HomePage = () => {
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
+              <div
+                className="card m-2 bg-general-secondary"
+                style={{ width: "18rem" }}
+                key={p._id}
+              >
                 <img
                   src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
+                  className="card-img-top card-image"
                   alt={p.name}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">
+                  <h5 className="card-title text-general-color">{p.name}</h5>
+                  <p className="card-text text-general-color">
                     {p.description.substring(0, 30)}...
                   </p>
-                  <p className="card-text"> Rs {p.price}</p>
+                  <p className="card-text text-general-color"> Rs {p.price}</p>
                   <button
                     className="btn btn-primary ms-1"
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
                     More Details
                   </button>
-                  <button className="btn btn-secondary ms-1" 
-                  onClick={() =>{
-                    setcart([...cart,p]);
-                  localStorage.setItem(
-                    'cart',
-                   JSON.stringify([...cart,p])
-                  );
-                    toast.success('Item added to cart')
-                  }}>
+                  <button
+                    className="btn btn-secondary ms-1"
+                    onClick={() => {
+                      setcart([...cart, p]);
+                      localStorage.setItem(
+                        "cart",
+                        JSON.stringify([...cart, p])
+                      );
+                      toast.success("Item added to cart");
+                    }}
+                  >
                     ADD TO CART
                   </button>
                 </div>
