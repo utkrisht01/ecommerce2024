@@ -40,3 +40,6 @@ JWT for authentication
 Other Integrations
 
 Stripe / Razorpay for secure payments
+
+
+
